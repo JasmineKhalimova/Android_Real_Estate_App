@@ -4,3 +4,4 @@ SDA Finall Project
 User Cases:
 
 1.1: Landing Page User registeration - All users required to register with the app
+1.2: User Account: User is redirected to their account after registering.

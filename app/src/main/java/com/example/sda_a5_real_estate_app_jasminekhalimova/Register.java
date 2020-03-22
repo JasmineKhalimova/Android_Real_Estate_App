@@ -76,12 +76,12 @@ public class Register extends AppCompatActivity {
                 final String fullName = mFullName.getText().toString();
 
                 if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is Required.");
+                    mEmail.setError("Email is required.");
                     return;
                 }
 
                 if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is Required.");
+                    mPassword.setError("Password is required.");
                     return;
                 }
 

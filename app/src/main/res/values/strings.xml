@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SDA_A5_Real_Estate_App_JasmineKhalimova</string>
+    <string name="welcome_title">Welcome To ReMax</string>
+    <string name="create_new_account">Create New Account</string>
+    <string name="fullname">Full Name</string>
+    <string name="register">Register</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="already_registered">Already Registered ? Login Here</string>
+</resources>

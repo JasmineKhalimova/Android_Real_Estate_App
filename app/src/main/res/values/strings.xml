@@ -11,6 +11,7 @@
     <string name="login">Create New Account</string>
     <string name="createText">New Here ? Create Account</string>
     <string name="loginBtn">Login</string>
+
     <string name="your_profile_title">Your Profile</string>
     <string name="profileName">Your Name</string>
     <string name="profileEmail">Your Email Address</string>

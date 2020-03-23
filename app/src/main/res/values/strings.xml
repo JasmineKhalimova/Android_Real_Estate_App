@@ -17,4 +17,6 @@
     <string name="profileEmail">Your Email Address</string>
     <string name="logout_button">Logout</string>
     <string name="user_avatar">user avatar</string>
+    <string name="verifymsg">verifyMsg</string>
+    <string name="verifybutton">VerifyButton</string>
 </resources>

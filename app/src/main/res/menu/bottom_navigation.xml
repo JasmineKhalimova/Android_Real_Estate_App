@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile" />
+
+    <item
+        android:id="@+id/nav_listings"
+        android:icon="@drawable/ic_listings"
+        android:title="@string/listings" />
+
+    <item
+        android:id="@+id/nav_ads"
+        android:icon="@drawable/ic_ad"
+        android:title="@string/post_an_ad" />
+
+    <item
+        android:id="@+id/nav_contact"
+        android:icon="@drawable/ic_email"
+        android:title="@string/contact_us" />
+</menu>

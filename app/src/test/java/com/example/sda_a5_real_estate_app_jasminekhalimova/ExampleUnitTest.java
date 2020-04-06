@@ -1,6 +1,6 @@
 package com.example.sda_a5_real_estate_app_jasminekhalimova;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.*;
 

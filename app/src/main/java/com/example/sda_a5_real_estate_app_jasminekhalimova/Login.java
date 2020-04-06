@@ -25,6 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
  * Author: Jasmine Khalimova
  *
  * User Case: Login Form.
+ *
  */
 
 public class Login extends AppCompatActivity {

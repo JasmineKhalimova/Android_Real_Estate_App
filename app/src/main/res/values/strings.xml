@@ -16,8 +16,18 @@
     <string name="profileName">Your Name</string>
     <string name="profileEmail">Your Email Address</string>
     <string name="logout_button">Logout</string>
+
     <string name="user_avatar">user avatar</string>
-    <string name="verifymsg">verifyMsg</string>
-    <string name="verifybutton">VerifyButton</string>
+    <string name="verifymsg">Verify Your Email</string>
+    <string name="verifybutton">Verify Button</string>
+
     <string name="forgot_password">Forgot Password</string>
+
+    <string name="profile">Profile</string>
+    <string name="listings">Listings</string>
+    <string name="post_an_ad">Post An Ad</string>
+    <string name="contact_us">Contact Us</string>
+
+    <string name="lisitngs_fregment">Lisitngs Fregment</string>
+    <string name="lisitngs_ads">Ads Fregment</string>
 </resources>

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">SDA_A5_Real_Estate_App_JasmineKhalimova</string>
     <string name="welcome_title">Welcome To ReMax</string>
     <string name="create_new_account">Create New Account</string>
@@ -29,5 +29,22 @@
     <string name="contact_us">Contact Us</string>
 
     <string name="lisitngs_fregment">Lisitngs Fregment</string>
-    <string name="lisitngs_ads">Ads Fregment</string>
+
+    <string name="ads_fregment">Post An Ad</string>
+    <string name="propertyInfo">Property Information</string>
+    <string name="adType">Type of ad: Rent, Sale or Share</string>
+    <string name="propertyType">Type of property:House, Apartment....</string>
+    <string name="propertyAddress">Property Address</string>
+    <string name="bedNumber">No. of bedrooms</string>
+    <string name="bathNumber">No. of Baths</string>
+    <string name="advertiserInfo">Contact Information</string>
+    <string name="advertiseName">Your Name</string>
+    <string name="price">Price €</string>
+    <string name="priceType">Selling Price, Monthly..</string>
+    <string name="propertyImage">propertyImage</string>
+    <string name="contactInfo">Contact Information</string>
+    <string name="AdvertiserEmail">Your email address</string>
+    <string name="AdvertiserPhone">Your phone number</string>
+    <string name="post_ad_button">Post</string>
+
 </resources>

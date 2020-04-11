@@ -12,7 +12,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,16 +52,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Bottom Navigation
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        //I added this if statement to keep the selected fragment when rotating the device
-       // if (savedInstanceState == null) {
-            //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    //new HomeFragment()).commit();
-        //}
-
         fullName = findViewById(R.id.profileName);
         email    = findViewById(R.id.profileEmail);
         verifyMsg = findViewById(R.id.verifyMsg);
@@ -69,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         userID = fAuth.getCurrentUser().getUid();
         final FirebaseUser user = fAuth.getCurrentUser();
+
+        //Bottom Navigation
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+
+        //I added this if statement to keep the selected fragment when rotating the device
+        // if (savedInstanceState == null) {
+        //getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+        //new HomeFragment()).commit();
+        //}
 
         // Re-sending verification if user not verified yet
         if (!user.isEmailVerified()){
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-    // Navigation
+    // Bottom navigation control
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override

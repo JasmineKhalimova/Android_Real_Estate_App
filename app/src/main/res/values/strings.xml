@@ -45,6 +45,6 @@
     <string name="advertiserName">Your Name</string>
     <string name="AdvertiserEmail">Your Email</string>
     <string name="AdvertiserPhone">Your Phone</string>
-    <string name="post_ad_button">Post</string>
+    <string name="post">Post</string>
 
 </resources>

@@ -13,7 +13,10 @@ Use Cases:
 
 1.2. Login Page: User loging page - Already registered users can login using their cradentials. If the user does not remeber their passowrd they can click forgot password.
 
+1.3: Posting an ad form: All the registered users are able to post an ad.
+
 3. Interface design: Using button framgent design for the app interface.
+3.1. Top navigation create for user to logout.
 
 Reference:
 
@@ -22,5 +25,6 @@ Reference:
 3.https://www.youtube.com/watch?v=pAhYEy6s9wQ
 4.https://www.youtube.com/watch?v=UMNeeMSUZl0&t=1s
 5.https://www.youtube.com/watch?v=Wf7DDIaRYjk
-6.,https://www.youtube.com/watch?v=tPV8xA7m-iw
+6.https://www.youtube.com/watch?v=tPV8xA7m-iw
+7.https://firebase.google.com/docs/firestore/manage-data/add-data
 

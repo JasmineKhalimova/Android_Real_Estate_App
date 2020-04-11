@@ -30,21 +30,20 @@
 
     <string name="lisitngs_fregment">Lisitngs Fregment</string>
 
-    <string name="ads_fregment">Post An Ad</string>
+    <string name="ads_fragment">Post An Ad</string>
     <string name="propertyInfo">Property Information</string>
-    <string name="adType">Type of ad: Rent, Sale or Share</string>
-    <string name="propertyType">Type of property:House, Apartment....</string>
+    <string name="adType">Ad Type: Sale, Rent, or Share</string>
+    <string name="propertyType">Property Type: House, Apartment or Duplex</string>
     <string name="propertyAddress">Property Address</string>
     <string name="bedNumber">No. of bedrooms</string>
     <string name="bathNumber">No. of Baths</string>
-    <string name="advertiserInfo">Contact Information</string>
-    <string name="advertiseName">Your Name</string>
-    <string name="price">Price €</string>
-    <string name="priceType">Selling Price, Monthly..</string>
+    <string name="price">€</string>
+    <string name="priceType">Selling/Monthly Price</string>
     <string name="propertyImage">propertyImage</string>
     <string name="contactInfo">Contact Information</string>
-    <string name="AdvertiserEmail">Your email address</string>
-    <string name="AdvertiserPhone">Your phone number</string>
+    <string name="advertiserName">Your Name</string>
+    <string name="AdvertiserEmail">Your Email</string>
+    <string name="AdvertiserPhone">Your Phone</string>
     <string name="post_ad_button">Post</string>
 
 </resources>

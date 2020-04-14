@@ -16,8 +16,13 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,8 +43,9 @@ public class AdsFragment extends Fragment {
     Button postBtn;
     EditText cancel;
     FirebaseFirestore fStore;
-    String productId;
-
+    String productID;
+    String userID;
+    FirebaseAuth fAuth;
 
     public AdsFragment(){
         // Required empty public constructor
@@ -48,6 +54,7 @@ public class AdsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
 
         View view = inflater.inflate(R.layout.fragment_ads, container, false);
 
@@ -65,6 +72,22 @@ public class AdsFragment extends Fragment {
         postBtn = view.findViewById(R.id.postBtn);
 
         fStore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+
+        userID = fAuth.getCurrentUser().getUid();
+        final FirebaseUser user = fAuth.getCurrentUser();
+
+        // Fetching User details from firebase cloud storage
+        DocumentReference documentReference = fStore.collection("users").document(userID);
+        documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@androidx.annotation.Nullable DocumentSnapshot documentSnapshot, @androidx.annotation.Nullable FirebaseFirestoreException e) {
+                if (documentSnapshot != null) {
+                    adverName.setText(documentSnapshot.getString("fName"));
+                    adverEmail.setText(documentSnapshot.getString("email"));
+                }
+            }
+        });
 
         postBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +140,6 @@ public class AdsFragment extends Fragment {
 
                 // Saving to Database
                 DocumentReference documentReference = fStore.collection("products").document();
-
                 Map<String,Object> product = new HashMap<>();
                 product.put("AdType",adType);
                 product.put("PropertyType",propertyType);
@@ -126,6 +148,7 @@ public class AdsFragment extends Fragment {
                 product.put("Baths",bathNumber);
                 product.put("Price",price);
                 product.put("PriceType",priceType);
+                product.put("AdvertiserUserId",userID);
                 product.put("AdvertiserName",advertiserName);
                 product.put("AdvertiserEmail",advertiserEmail);
                 product.put("AdvertiserPhone",advertiserPhone);
@@ -133,7 +156,7 @@ public class AdsFragment extends Fragment {
                 documentReference.set(product).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "onSuccess: product is created for "+ productId);
+                        Log.d(TAG, "onSuccess: product is created for "+ productID);
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
@@ -141,6 +164,7 @@ public class AdsFragment extends Fragment {
                         Log.d(TAG, "onFailure: " + e.toString());
                     }
                 });
+                startActivity(new Intent(getContext(),MainActivity.class));
             }
         });
 

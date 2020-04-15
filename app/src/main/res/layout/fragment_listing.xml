@@ -1,20 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundeight">
 
     <TextView
+        android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:text="@string/lisitngs_fregment"
+        android:textColor="#FFEB3B"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.195" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/propertyImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:contentDescription="@string/propertyImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.111"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/adTitle"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/adTitle"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/propertyImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:textAlignment="viewStart"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/propertyImage"
+        app:layout_constraintTop_toBottomOf="@+id/adTitle" />
+
+    <TextView
+        android:id="@+id/adCity"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/adCity"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/propertyImage"
+        app:layout_constraintTop_toBottomOf="@+id/price"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/adArea"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="@string/adArea"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/propertyImage"
+        app:layout_constraintTop_toBottomOf="@+id/adCity"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/adDescrip"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="@string/adDescrip"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/contactInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/propertyImage"
+        app:layout_constraintVertical_bias="0.123"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/contactInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/contactInfo"
+        android:textAlignment="textStart"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.548" />
+
+    <TextView
+        android:id="@+id/advertiserName"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:ems="10"
+        android:hint="@string/advertiserName"
+        android:importantForAutofill="no"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactInfo" />
+
+    <TextView
+        android:id="@+id/advertiserEmail"
+        android:layout_width="0dp"
+        android:layout_height="35dp"
+        android:ems="10"
+        android:hint="@string/AdvertiserEmail"
+        android:importantForAutofill="no"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#A9A9A9"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advertiserName"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="LabelFor" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

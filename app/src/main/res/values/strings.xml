@@ -44,4 +44,10 @@
     <string name="lisitngs_fregment">Listings</string>
     <string name="adImage">TODO</string>
 
+    <string name="contactSection">Contact Us</string>
+    <string name="officeAddress">Castleforbes Square, Dublin 1, Ireland</string>
+    <string name="call_us">Call us at <a href="tel:+911234567890">+91 1234567890</a></string>
+    <string name="email_us">Email us at <a href="mailto:abc@gmail.com">abc@gmail.com</a></string>
+    <string name="lgo">logo</string>
+
 </resources>

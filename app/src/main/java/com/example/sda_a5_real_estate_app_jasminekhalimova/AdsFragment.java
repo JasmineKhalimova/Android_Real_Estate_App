@@ -1,7 +1,10 @@
 package com.example.sda_a5_real_estate_app_jasminekhalimova;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -38,12 +42,12 @@ public class AdsFragment extends Fragment {
     public static final String TAG = "TAG";
     //Declaring variables
     EditText aType,propAddress,fprice,propDesc,propArea,adverName,adverEmail;
-    Button postBtn;
-    EditText cancel;
+    Button postBtn, addPropertyImage;
     FirebaseFirestore fStore;
     String productID;
     String userID;
     FirebaseAuth fAuth;
+    ImageView propertyImage;
 
     public AdsFragment(){
         // Required empty public constructor
@@ -63,6 +67,8 @@ public class AdsFragment extends Fragment {
         propDesc = view.findViewById(R.id.adDescrip);
         adverName = view.findViewById(R.id.advertiserName);
         adverEmail = view.findViewById(R.id.advertiserEmail);
+        addPropertyImage = view.findViewById(R.id.addImage);
+        propertyImage = view.findViewById(R.id.profileImage);
 
         postBtn = view.findViewById(R.id.postBtn);
 
@@ -153,6 +159,26 @@ public class AdsFragment extends Fragment {
             }
         });
 
+        //User image avatar
+        addPropertyImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // choose from gallery
+                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(openGalleryIntent,1000);
+            }
+        });
+
         return view;
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data){
+        super.onActivityResult(requestCode,resultCode,data);
+        if (requestCode == 1000){
+            if (resultCode == Activity.RESULT_OK){
+                Uri imageUri = data.getData();
+                propertyImage.setImageURI(imageUri);
+            }
+        }
     }
 }

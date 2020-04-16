@@ -46,9 +46,11 @@
 
     <string name="contactSection">Contact Us</string>
     <string name="officeAddress">Castleforbes Square, Dublin 1, Ireland</string>
-    <string name="call_us">Tell: <a href="tel:+911234567890">+353 1234987</a></string>
-    <string name="email_us">Email:<a href="mailto:abc@gmail.com">info@remax.com</a></string>
+    <string name="call_us">Tell: <a href="tel:+3531234987">+353 1234987</a></string>
+    <string name="email_us">Email:<a href="info@remax.com">info@remax.com</a></string>
     <string name="lgo">logo</string>
     <string name="officeMap">officeMap</string>
+    <string name="avatarImage">Change Image</string>
+    <string name="addImage">Add Image</string>
 
 </resources>

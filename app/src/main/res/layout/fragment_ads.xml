@@ -10,13 +10,14 @@
         android:id="@+id/logo"
         android:layout_width="80dp"
         android:layout_height="60dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/lgo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.052"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -39,14 +40,26 @@
     <ImageView
         android:id="@+id/propertyImage"
         android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/propertyImage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+    <Button
+        android:id="@+id/addImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/addImage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/propertyImage"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/propertyImage"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/adTitle"
@@ -130,7 +143,7 @@
         android:id="@+id/adDescrip"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:background="@android:color/black"
         android:hint="@string/adDescrip"
         android:padding="10dp"
@@ -139,10 +152,10 @@
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/contactInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/propertyImage"
-        app:layout_constraintVertical_bias="0.123"
+        app:layout_constraintVertical_bias="0.53"
         tools:ignore="LabelFor" />
 
     <TextView

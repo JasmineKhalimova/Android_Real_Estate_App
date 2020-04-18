@@ -36,6 +36,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 /**
  * Author: Jasmine Khalimova
@@ -64,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
         fullName = findViewById(R.id.profileName);
         email    = findViewById(R.id.profileEmail);
         verifyMsg = findViewById(R.id.verifyMsg);
-        avatarChange = findViewById(R.id.avatarImageChange);
         profileAvatar = findViewById(R.id.profileImage);
 
 
@@ -73,6 +73,15 @@ public class MainActivity extends AppCompatActivity {
         userID = fAuth.getCurrentUser().getUid();
         final FirebaseUser user = fAuth.getCurrentUser();
         storageReference = FirebaseStorage.getInstance().getReference();
+
+        // Retrieving image from firebase storage
+        StorageReference profileRef = storageReference.child("avatar.png");
+        profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(profileAvatar);
+            }
+        });
 
         //Bottom Navigation
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
@@ -93,35 +102,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-        //User image avatar
-        avatarChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // choose from gallery
-                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGalleryIntent,1000);
-            }
-        });
-    }
-
-    // selecting image from the gallery
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == 1000){
-            if (resultCode == Activity.RESULT_OK){
-                Uri imageUri = data.getData();
-                profileAvatar.setImageURI(imageUri);
-
-                uploadImageToFirebase();
-            }
-        }
-    }
-
-    // Uploading image to FirebaseStore
-    private void uploadImageToFirebase() {
-        
     }
 
 

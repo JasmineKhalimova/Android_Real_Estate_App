@@ -1,7 +1,10 @@
 package com.example.sda_a5_real_estate_app_jasminekhalimova;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -10,12 +13,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,6 +34,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,15 +51,20 @@ import javax.annotation.Nullable;
  */
 public class AdsFragment extends Fragment {
 
+    public static final int CAMERA_PERM_CODE = 101;
+    public static final int CAMERA_REQUEST_CODE = 102;
+    public static final int GALLERY_REQUEST_CODE = 105;
+
     public static final String TAG = "TAG";
     //Declaring variables
     EditText aType,propAddress,fprice,propDesc,propArea,adverName,adverEmail;
-    Button postBtn, addPropertyImage;
+    Button postBtn, galleryBtn;
     FirebaseFirestore fStore;
     String productID;
     String userID;
     FirebaseAuth fAuth;
-    ImageView propertyImage;
+    ImageView displayImageView;
+    StorageReference storageReference;
 
     public AdsFragment(){
         // Required empty public constructor
@@ -67,8 +84,9 @@ public class AdsFragment extends Fragment {
         propDesc = view.findViewById(R.id.adDescrip);
         adverName = view.findViewById(R.id.advertiserName);
         adverEmail = view.findViewById(R.id.advertiserEmail);
-        addPropertyImage = view.findViewById(R.id.addImage);
-        propertyImage = view.findViewById(R.id.profileImage);
+
+        galleryBtn = view.findViewById(R.id.galleryBtn);
+        displayImageView = view.findViewById(R.id.displayImageView);
 
         postBtn = view.findViewById(R.id.postBtn);
 
@@ -77,6 +95,9 @@ public class AdsFragment extends Fragment {
 
         userID = fAuth.getCurrentUser().getUid();
         final FirebaseUser user = fAuth.getCurrentUser();
+
+        storageReference = FirebaseStorage.getInstance().getReference();
+
 
         // Fetching User details from firebase cloud storage
         DocumentReference documentReference = fStore.collection("users").document(userID);
@@ -155,30 +176,67 @@ public class AdsFragment extends Fragment {
                         Log.d(TAG, "onFailure: " + e.toString());
                     }
                 });
-                startActivity(new Intent(getContext(),MainActivity.class));
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new ListingsFragment()).commit();
             }
         });
 
-        //User image avatar
-        addPropertyImage.setOnClickListener(new View.OnClickListener() {
+        //Opening Gallery
+        galleryBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // choose from gallery
-                Intent openGalleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(openGalleryIntent,1000);
+                Intent gallery = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(gallery, GALLERY_REQUEST_CODE);
             }
         });
 
         return view;
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, @androidx.annotation.Nullable Intent data){
         super.onActivityResult(requestCode,resultCode,data);
-        if (requestCode == 1000){
+        if(requestCode == GALLERY_REQUEST_CODE){
             if (resultCode == Activity.RESULT_OK){
-                Uri imageUri = data.getData();
-                propertyImage.setImageURI(imageUri);
+                if (ContextCompat.checkSelfPermission(getActivity(),
+                        Manifest.permission.READ_EXTERNAL_STORAGE)
+                        != PackageManager.PERMISSION_GRANTED) {
+
+                    ActivityCompat.requestPermissions(getActivity(),
+                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                            1);
+                } else {
+                    Uri imageUri = data.getData();
+                    String imageFileName = "JPEG_" + "."+getFileExt(imageUri);
+                    Log.d(TAG, "onActivityResult: Gallery Image Uri:  " +  imageFileName);
+                    displayImageView.setImageURI(imageUri);
+                    uploadImageToFirebase(imageFileName, imageUri);
+                }
             }
         }
     }
+    private String getFileExt(Uri contentUri) {
+        ContentResolver c = getContext().getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(c.getType(contentUri));
+    }
+
+    //uploading to firebase
+    private void uploadImageToFirebase(String name, Uri imageUri) {
+        StorageReference fileRef = storageReference.child("products/" + name);
+        fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(getActivity(),"Image Selected", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getActivity(),"Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
 }

@@ -42,7 +42,7 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFEB3B"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -57,27 +57,18 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/user_avatar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.06999999"
         app:srcCompat="@mipmap/ic_launcher" />
-
-    <Button
-        android:id="@+id/avatarImageChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/avatarImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/profileImage"
-        app:layout_constraintStart_toStartOf="@+id/profileImage"
-        app:layout_constraintTop_toBottomOf="@+id/profileImage"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/profileName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="@string/profileName"
         android:textColor="@color/common_google_signin_btn_text_dark_default"
@@ -112,9 +103,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-27dp">
-
-    </FrameLayout>
+        tools:layout_editor_absoluteY="-27dp"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

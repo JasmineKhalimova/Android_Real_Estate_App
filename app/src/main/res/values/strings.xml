@@ -35,7 +35,9 @@
     <string name="adArea">Area</string>
     <string name="adDescrip">Property description e.g No bedrooms, bath etc</string>
     <string name="price">€</string>
-    <string name="propertyImage">propertyImage</string>
+    <string name="displayImageView">propertyImage</string>
+    <string name="addImage">Add Image</string>
+    <string name="camerabtn">cameraBtn</string>
     <string name="contactInfo">Contact Information</string>
     <string name="advertiserName">Your Name</string>
     <string name="AdvertiserEmail">Your Email</string>
@@ -50,7 +52,5 @@
     <string name="email_us">Email:<a href="info@remax.com">info@remax.com</a></string>
     <string name="lgo">logo</string>
     <string name="officeMap">officeMap</string>
-    <string name="avatarImage">Change Image</string>
-    <string name="addImage">Add Image</string>
 
 </resources>

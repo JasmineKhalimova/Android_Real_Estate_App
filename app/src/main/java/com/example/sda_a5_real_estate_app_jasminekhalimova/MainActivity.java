@@ -3,8 +3,6 @@ package com.example.sda_a5_real_estate_app_jasminekhalimova;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -49,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     //Declaring variables
     public static final String TAG = "TAG";
     TextView fullName,email,verifyMsg;
-    Button avatarChange;
     ImageView profileAvatar;
     StorageReference storageReference;
 

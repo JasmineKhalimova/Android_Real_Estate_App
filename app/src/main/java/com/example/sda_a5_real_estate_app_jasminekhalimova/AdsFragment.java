@@ -23,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -51,8 +50,6 @@ import javax.annotation.Nullable;
  */
 public class AdsFragment extends Fragment {
 
-    public static final int CAMERA_PERM_CODE = 101;
-    public static final int CAMERA_REQUEST_CODE = 102;
     public static final int GALLERY_REQUEST_CODE = 105;
 
     public static final String TAG = "TAG";
@@ -60,7 +57,6 @@ public class AdsFragment extends Fragment {
     EditText aType,propAddress,fprice,propDesc,propArea,adverName,adverEmail;
     Button postBtn, galleryBtn;
     FirebaseFirestore fStore;
-    String productID;
     String userID;
     FirebaseAuth fAuth;
     ImageView displayImageView;

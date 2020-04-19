@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1016453761466",
+    "firebase_url": "https://sdaa5realestateappjasminek.firebaseio.com",
+    "project_id": "sdaa5realestateappjasminek",
+    "storage_bucket": "sdaa5realestateappjasminek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016453761466:android:ffa2cc91dcf3fa5a313583",
+        "android_client_info": {
+          "package_name": "com.example.sda_a5_real_estate_app_jasminekhalimova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016453761466-cq66h2k4m2sv6f1ipkoto6fm5lbmal1l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sda_a5_real_estate_app_jasminekhalimova",
+            "certificate_hash": "960d50f2a673913e35873d1d08a9b334d5d2d308"
+          }
+        },
+        {
+          "client_id": "1016453761466-dok4hlq11m2uiaehcl3f824csj2culms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIviEgMXVt5bogCYYc0btihvBRVSR4W0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016453761466-dok4hlq11m2uiaehcl3f824csj2culms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

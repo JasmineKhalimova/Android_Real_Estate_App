@@ -61,7 +61,7 @@ public class ListingsFragment extends Fragment {
         storageReference = FirebaseStorage.getInstance().getReference();
 
         // Retrieving image from firebase storage
-        StorageReference profileRef = storageReference.child("house1.jpeg");
+        StorageReference profileRef = storageReference.child("products/"+"JPEG_.jpg");
         profileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {

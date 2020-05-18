@@ -1,5 +1,5 @@
 # Real estate android mobile app
 
 
-Build in Java using Android Studio
+Real Estate Android App build using android studio: Java Marshmello API 23 and Firebase Cloud
 
